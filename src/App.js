@@ -1,25 +1,39 @@
-import logo from './logo.svg';
-import './App.css';
+import { Route, Switch, Redirect } from "react-router-dom";
+import { Component } from "react";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import Context from "./Context";
+
+import Login from "./components/Login";
+import Home from "./components/Home";
+import SignUp from "./components/SignUp";
+import NotFound from "./components/NotFound";
+import ProtectedRoute from "./components/ProtectedRoute";
+
+import "./App.css";
+
+class App extends Component {
+  state = {
+    userName: "",
+  };
+
+  render() {
+    const { username } = this.state;
+    return (
+      <Context.Provider
+        value={{
+          username,
+        }}
+      >
+        <Switch>
+          <Route exact path="/signup" component={SignUp} />
+          <ProtectedRoute exact path="/" component={Home} />
+          <Route exact path="/login" component={Login} />
+          <Route path="/not-found" component={NotFound} />
+          <Redirect to="not-found" />
+        </Switch>
+      </Context.Provider>
+    );
+  }
 }
 
 export default App;

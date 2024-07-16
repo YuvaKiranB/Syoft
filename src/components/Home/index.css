@@ -1,0 +1,30 @@
+.profileCard {
+  width: 100%;
+  background-image: url("https://assets.ccbp.in/frontend/react-js/profile-bg.png");
+  background-size: cover;
+  padding: 20px;
+  border-radius: 30px;
+}
+
+.profileImage {
+  height: 50px;
+}
+
+.profileNameHeading {
+  font-family: roboto;
+  margin: 5px;
+  margin-left: 0px;
+  font-size: 22px;
+  color: #6366f1;
+}
+
+.details {
+  font-family: roboto;
+  font-size: 16px;
+  color: #64748b;
+}
+
+.span {
+  font-weight: 500;
+  color: black;
+}
